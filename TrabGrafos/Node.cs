@@ -12,28 +12,31 @@ namespace TrabGrafos
         /* Classe para referenciar posições de cada nodo e suas respectivas ligações com outros
            nodos caso houver 
          */
+        public int id = 0;
         public int x;
         public int y;
         public List<Node> parent;
         public Color color;
-        private Graphics g;
 
+        private Graphics g;
         private int size = 32;
 
-        public Node(int x, int y, Color c, Graphics g)
+        public Node(int id, int x, int y, Color c, Graphics g)
         {
+            this.id = id;
             Random r = new Random();
             this.x = x;
             this.y = y;
             this.color = c;
             this.g = g;
-            this.parent = null;
+            this.parent = new List<Node>();
         }
 
         public void DrawNode()
         {
             SolidBrush brush = new SolidBrush(color);
             g.FillEllipse(brush, x, y, size, size);
+            g.DrawString(id.ToString(), new Font("Arial", 16), new SolidBrush(Color.White), this.x + (size / 4), this.y + (size / 4));
             brush.Dispose();
         }
 
@@ -45,6 +48,7 @@ namespace TrabGrafos
 
         public void Connect(Node n)
         {
+            this.parent.Add(n); //adiciona conexão na lista de conexões
             Pen pen = new Pen(Color.Black);
             g.DrawLine(pen, x + (size/2), y, n.x + (size / 2), n.y);
         }

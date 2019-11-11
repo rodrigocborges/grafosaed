@@ -39,13 +39,14 @@ namespace TrabGrafos
         private void graphPanel_Paint(object sender, PaintEventArgs e)
         {
             g = graphPanel.CreateGraphics();
-            listNodes.Add(new Node(50, 50, Color.Red, g));
-            listNodes.Add(new Node(100, 200, Color.Blue, g));
-            listNodes.Add(new Node(350, 50, Color.Green, g));
-            listNodes.Add(new Node(400, 300, Color.Yellow, g));
-            listNodes.Add(new Node(500, 200, Color.Bisque, g));
-            listNodes.Add(new Node(600, 300, Color.Crimson, g));
-            listNodes.Add(new Node(433, 100, Color.Aquamarine, g));
+            int id = 0;
+            listNodes.Add(new Node(id, 50, 50, Color.Red, g));
+            listNodes.Add(new Node(++id, 100, 200, Color.Blue, g));
+            listNodes.Add(new Node(++id, 350, 50, Color.Green, g));
+            listNodes.Add(new Node(++id, 400, 300, Color.Yellow, g));
+            listNodes.Add(new Node(++id, 500, 200, Color.Bisque, g));
+            listNodes.Add(new Node(++id, 600, 300, Color.Crimson, g));
+            listNodes.Add(new Node(++id, 533, 100, Color.Aquamarine, g));
 
             //listNodes[0].Connect(listNodes[1]);
             //listNodes[1].Connect(listNodes[2]);
