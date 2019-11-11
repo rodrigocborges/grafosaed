@@ -34,25 +34,27 @@
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoImagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoDadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fCoord = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // graphPanel
             // 
             this.graphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphPanel.Location = new System.Drawing.Point(0, 24);
+            this.graphPanel.Location = new System.Drawing.Point(0, 27);
             this.graphPanel.Name = "graphPanel";
-            this.graphPanel.Size = new System.Drawing.Size(784, 337);
+            this.graphPanel.Size = new System.Drawing.Size(784, 334);
             this.graphPanel.TabIndex = 0;
             this.graphPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.graphPanel_Paint);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem});
+            this.arquivoToolStripMenuItem,
+            this.fCoord});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,7 +65,7 @@
             this.salvarComoImagemToolStripMenuItem,
             this.salvarComoDadoToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
             // 
             // novoToolStripMenuItem
@@ -85,6 +87,12 @@
             this.salvarComoDadoToolStripMenuItem.Name = "salvarComoDadoToolStripMenuItem";
             this.salvarComoDadoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.salvarComoDadoToolStripMenuItem.Text = "Salvar como Dado";
+            // 
+            // fCoord
+            // 
+            this.fCoord.Name = "fCoord";
+            this.fCoord.Size = new System.Drawing.Size(100, 23);
+            this.fCoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fCoord_KeyDown);
             // 
             // Form1
             // 
@@ -115,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoImagemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoDadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox fCoord;
     }
 }
 

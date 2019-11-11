@@ -38,20 +38,23 @@ namespace TrabGrafos
 
         private void graphPanel_Paint(object sender, PaintEventArgs e)
         {
-            g = graphPanel.CreateGraphics();
+            
             int id = 0;
-            listNodes.Add(new Node(id, 50, 50, Color.Red, g));
-            listNodes.Add(new Node(++id, 100, 200, Color.Blue, g));
-            listNodes.Add(new Node(++id, 350, 50, Color.Green, g));
-            listNodes.Add(new Node(++id, 400, 300, Color.Yellow, g));
-            listNodes.Add(new Node(++id, 500, 200, Color.Bisque, g));
-            listNodes.Add(new Node(++id, 600, 300, Color.Crimson, g));
-            listNodes.Add(new Node(++id, 533, 100, Color.Aquamarine, g));
-
-            //listNodes[0].Connect(listNodes[1]);
-            //listNodes[1].Connect(listNodes[2]);
-            //listNodes[2].Connect(listNodes[3]);
-
+            int posX = 0;
+            int posY = 0;
+            g = graphPanel.CreateGraphics();
+            for (id = 0; id < 5; id++)
+            {
+                listNodes.Add(new Node(id, posX, posY, Color.Brown, g));
+                if ((posX + 32 > graphPanel.Width) || (posY > graphPanel.Height))
+                {
+                    MessageBox.Show("Chegou");
+                    break;
+                }
+                posX += 30;
+                posY += 30;
+            }
+            
             for (int i = 0; i < listNodes.Count; i++)
             {
                 if (i < listNodes.Count - 1)
@@ -63,8 +66,7 @@ namespace TrabGrafos
             foreach (Node n in listNodes)
                 n.DrawNode(); //desenha todos os nodos presentes na lista
 
-            g.Dispose();
-
+        
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,7 +75,8 @@ namespace TrabGrafos
             {
                 g.Clear(graphPanel.BackColor);
                 graphPanel.Update();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -91,7 +94,21 @@ namespace TrabGrafos
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
+        }
+     
+        List<int> valueCoord = new List<int>();
+        private void fCoord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return || e.KeyCode == Keys.Enter)
+            {
+                string[] sCoord = fCoord.Text.Split(',');
+                valueCoord.Add(Int32.Parse(sCoord[0]));
+                valueCoord.Add(Int32.Parse(sCoord[1]));
+                listNodes.Add(new Node(5, valueCoord[0], valueCoord[1], Color.Black, g));
+                listNodes[listNodes.Count - 1].DrawNode();
+
+            }
         }
     }
 }
