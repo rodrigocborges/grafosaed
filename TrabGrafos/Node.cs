@@ -50,7 +50,7 @@ namespace TrabGrafos
         {
             this.parent.Add(n); //adiciona conexão na lista de conexões
             Pen pen = new Pen(Color.Black);
-            g.DrawLine(pen, x + (size/2), y, n.x + (size / 2), n.y);
+            g.DrawLine(pen, x + (size/2), y + (size/2), n.x + (size/2), n.y + (size/2));
         }
     }
 }
