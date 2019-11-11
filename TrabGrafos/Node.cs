@@ -46,7 +46,7 @@ namespace TrabGrafos
         public void Connect(Node n)
         {
             Pen pen = new Pen(Color.Black);
-            g.DrawLine(pen, x + (size/2), y, n.x + (size / 2), n.y);
+            g.DrawLine(pen, x + (size/2), y + (size/2), n.x + (size/2), n.y + (size/2));
         }
     }
 }
