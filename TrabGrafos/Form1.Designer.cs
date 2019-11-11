@@ -34,6 +34,7 @@
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoImagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoDadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem});
+            this.arquivoToolStripMenuItem,
+            this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -86,6 +88,12 @@
             this.salvarComoDadoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.salvarComoDadoToolStripMenuItem.Text = "Salvar como Dado";
             // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,7 +105,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gerador de Grafos";
+            this.Text = "Teste";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
@@ -115,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoImagemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoDadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
     }
 }
 
