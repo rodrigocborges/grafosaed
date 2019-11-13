@@ -34,29 +34,25 @@
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoImagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoDadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gerarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeAdjacênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matrizDeAdjacênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // graphPanel
             // 
             this.graphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphPanel.Location = new System.Drawing.Point(0, 24);
+            this.graphPanel.Location = new System.Drawing.Point(0, 27);
             this.graphPanel.Name = "graphPanel";
-            this.graphPanel.Size = new System.Drawing.Size(784, 337);
+            this.graphPanel.Size = new System.Drawing.Size(784, 334);
             this.graphPanel.TabIndex = 0;
             this.graphPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.graphPanel_Paint);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem,
-            this.gerarToolStripMenuItem});
+            this.arquivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,7 +63,7 @@
             this.salvarComoImagemToolStripMenuItem,
             this.salvarComoDadoToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
             // 
             // novoToolStripMenuItem
@@ -89,27 +85,6 @@
             this.salvarComoDadoToolStripMenuItem.Name = "salvarComoDadoToolStripMenuItem";
             this.salvarComoDadoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.salvarComoDadoToolStripMenuItem.Text = "Salvar como Dado";
-            // 
-            // gerarToolStripMenuItem
-            // 
-            this.gerarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listaDeAdjacênciasToolStripMenuItem,
-            this.matrizDeAdjacênciasToolStripMenuItem});
-            this.gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
-            this.gerarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.gerarToolStripMenuItem.Text = "Gerar";
-            // 
-            // listaDeAdjacênciasToolStripMenuItem
-            // 
-            this.listaDeAdjacênciasToolStripMenuItem.Name = "listaDeAdjacênciasToolStripMenuItem";
-            this.listaDeAdjacênciasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.listaDeAdjacênciasToolStripMenuItem.Text = "Lista de Adjacências";
-            // 
-            // matrizDeAdjacênciasToolStripMenuItem
-            // 
-            this.matrizDeAdjacênciasToolStripMenuItem.Name = "matrizDeAdjacênciasToolStripMenuItem";
-            this.matrizDeAdjacênciasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.matrizDeAdjacênciasToolStripMenuItem.Text = "Matriz de Adjacências";
             // 
             // Form1
             // 
@@ -140,9 +115,6 @@
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoImagemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoDadoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gerarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDeAdjacênciasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem matrizDeAdjacênciasToolStripMenuItem;
     }
 }
 
