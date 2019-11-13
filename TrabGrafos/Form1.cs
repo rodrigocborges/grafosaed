@@ -19,6 +19,7 @@ namespace TrabGrafos
         public Form1()
         {
             InitializeComponent();
+            g = graphPanel.CreateGraphics();
         }
 
         private void DrawLine(int x1, int y1, int x2, int y2)
@@ -38,7 +39,6 @@ namespace TrabGrafos
 
         private void graphPanel_Paint(object sender, PaintEventArgs e)
         {
-            g = graphPanel.CreateGraphics();
             int id = 0;
             listNodes.Add(new Node(id, 50, 50, Color.Red, g));
             listNodes.Add(new Node(++id, 100, 200, Color.Blue, g));
@@ -47,10 +47,6 @@ namespace TrabGrafos
             listNodes.Add(new Node(++id, 500, 200, Color.Bisque, g));
             listNodes.Add(new Node(++id, 600, 300, Color.Crimson, g));
             listNodes.Add(new Node(++id, 533, 100, Color.Aquamarine, g));
-
-            //listNodes[0].Connect(listNodes[1]);
-            //listNodes[1].Connect(listNodes[2]);
-            //listNodes[2].Connect(listNodes[3]);
 
             for (int i = 0; i < listNodes.Count; i++)
             {
@@ -63,29 +59,40 @@ namespace TrabGrafos
             foreach (Node n in listNodes)
                 n.DrawNode(); //desenha todos os nodos presentes na lista
 
-            g.Dispose();
-
-        }
+        } //BUG CONSERTADO: graphics não pode dar dispose porque crasha tela ao maximizar
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 g.Clear(graphPanel.BackColor);
-                graphPanel.Update();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        private int imageID = 1;
+
         private void salvarComoImagemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Bitmap b = new Bitmap(graphPanel.Width, graphPanel.Height, g);
-                b.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + imageID + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                ++imageID;
+                SaveFileDialog sfDialog = new SaveFileDialog();
+                sfDialog.Filter = "Arquivo Jpeg|*.jpg";
+                sfDialog.Title = "Salvar grafo em imagem";
+                sfDialog.ShowDialog();
+
+                if(sfDialog.FileName != string.Empty)
+                {
+                    FileStream fs = (FileStream)sfDialog.OpenFile();
+                    switch (sfDialog.FilterIndex)
+                    {
+                        case 1:
+                            Bitmap b = new Bitmap(graphPanel.Width, graphPanel.Height, g);
+                            b.Save(sfDialog.FileName);
+                            break;
+                    }
+                    fs.Close();
+                }
             }
             catch (Exception ex)
             {
