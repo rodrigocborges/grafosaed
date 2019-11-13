@@ -34,6 +34,10 @@
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoImagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarComoDadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeAdjacênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matrizDeAdjacênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fCoord = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +53,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem});
+            this.arquivoToolStripMenuItem,
+            this.gerarToolStripMenuItem,
+            this.fCoord});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 27);
@@ -86,6 +92,33 @@
             this.salvarComoDadoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.salvarComoDadoToolStripMenuItem.Text = "Salvar como Dado";
             // 
+            // gerarToolStripMenuItem
+            // 
+            this.gerarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listaDeAdjacênciasToolStripMenuItem,
+            this.matrizDeAdjacênciasToolStripMenuItem});
+            this.gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
+            this.gerarToolStripMenuItem.Size = new System.Drawing.Size(47, 23);
+            this.gerarToolStripMenuItem.Text = "Gerar";
+            // 
+            // listaDeAdjacênciasToolStripMenuItem
+            // 
+            this.listaDeAdjacênciasToolStripMenuItem.Name = "listaDeAdjacênciasToolStripMenuItem";
+            this.listaDeAdjacênciasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.listaDeAdjacênciasToolStripMenuItem.Text = "Lista de Adjacências";
+            // 
+            // matrizDeAdjacênciasToolStripMenuItem
+            // 
+            this.matrizDeAdjacênciasToolStripMenuItem.Name = "matrizDeAdjacênciasToolStripMenuItem";
+            this.matrizDeAdjacênciasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.matrizDeAdjacênciasToolStripMenuItem.Text = "Matriz de Adjacências";
+            // 
+            // fCoord
+            // 
+            this.fCoord.Name = "fCoord";
+            this.fCoord.Size = new System.Drawing.Size(100, 23);
+            this.fCoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fCoord_KeyDown);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +133,7 @@
             this.Text = "Gerador de Grafos";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -115,6 +149,10 @@
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoImagemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarComoDadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeAdjacênciasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matrizDeAdjacênciasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox fCoord;
     }
 }
 

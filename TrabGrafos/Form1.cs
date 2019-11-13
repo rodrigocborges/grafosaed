@@ -39,20 +39,6 @@ namespace TrabGrafos
 
         private void graphPanel_Paint(object sender, PaintEventArgs e)
         {
-            g = graphPanel.CreateGraphics();
-            int id = 0;
-            listNodes.Add(new Node(id, 50, 50, Color.Red, g));
-            listNodes.Add(new Node(++id, 100, 200, Color.Blue, g));
-            listNodes.Add(new Node(++id, 350, 50, Color.Green, g));
-            listNodes.Add(new Node(++id, 400, 300, Color.Yellow, g));
-            listNodes.Add(new Node(++id, 500, 200, Color.Bisque, g));
-            listNodes.Add(new Node(++id, 600, 300, Color.Crimson, g));
-            listNodes.Add(new Node(++id, 533, 100, Color.Aquamarine, g));
-
-            //listNodes[0].Connect(listNodes[1]);
-            //listNodes[1].Connect(listNodes[2]);
-            //listNodes[2].Connect(listNodes[3]);
-
             for (int i = 0; i < listNodes.Count; i++)
             {
                 if (i < listNodes.Count - 1)
@@ -63,9 +49,6 @@ namespace TrabGrafos
 
             foreach (Node n in listNodes)
                 n.DrawNode(); //desenha todos os nodos presentes na lista
-
-            g.Dispose();
-
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,7 +97,7 @@ namespace TrabGrafos
 
         private void fCoord_KeyDown(object sender, KeyEventArgs e)
         {
-            id = listNodes.Count-1;
+            id = listNodes.Count - 1;
             //MessageBox.Show(Convert.ToString(id));
             if (e.KeyCode == Keys.Return || e.KeyCode == Keys.Enter)
             {
@@ -124,11 +107,15 @@ namespace TrabGrafos
                 valueCoord.Add(Int32.Parse(sCoord[1]));
                 listNodes.Add(new Node(id, valueCoord[0], valueCoord[1], Color.Black, g));
                 listNodes[listNodes.Count - 1].DrawNode();
+                listNodes[id].Connect(listNodes[listNodes.Count - 1]);
                 fCoord.Clear();
                 valueCoord.Clear();
-                //++id;
-
             }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            g = graphPanel.CreateGraphics();
         }
     }
 }
