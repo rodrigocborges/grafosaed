@@ -37,28 +37,27 @@
             this.gerarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeAdjacênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matrizDeAdjacênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fCoord = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // graphPanel
             // 
             this.graphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphPanel.Location = new System.Drawing.Point(0, 27);
+            this.graphPanel.Location = new System.Drawing.Point(0, 24);
             this.graphPanel.Name = "graphPanel";
-            this.graphPanel.Size = new System.Drawing.Size(784, 334);
+            this.graphPanel.Size = new System.Drawing.Size(784, 337);
             this.graphPanel.TabIndex = 0;
             this.graphPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.graphPanel_Paint);
+            this.graphPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.graphPanel_MouseDown);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
-            this.gerarToolStripMenuItem,
-            this.fCoord});
+            this.gerarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,7 +68,7 @@
             this.salvarComoImagemToolStripMenuItem,
             this.salvarComoDadoToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
             // 
             // novoToolStripMenuItem
@@ -98,7 +97,7 @@
             this.listaDeAdjacênciasToolStripMenuItem,
             this.matrizDeAdjacênciasToolStripMenuItem});
             this.gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
-            this.gerarToolStripMenuItem.Size = new System.Drawing.Size(47, 23);
+            this.gerarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.gerarToolStripMenuItem.Text = "Gerar";
             // 
             // listaDeAdjacênciasToolStripMenuItem
@@ -113,12 +112,6 @@
             this.matrizDeAdjacênciasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.matrizDeAdjacênciasToolStripMenuItem.Text = "Matriz de Adjacências";
             // 
-            // fCoord
-            // 
-            this.fCoord.Name = "fCoord";
-            this.fCoord.Size = new System.Drawing.Size(100, 23);
-            this.fCoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fCoord_KeyDown);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +124,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerador de Grafos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -152,7 +146,6 @@
         private System.Windows.Forms.ToolStripMenuItem gerarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeAdjacênciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matrizDeAdjacênciasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox fCoord;
     }
 }
 

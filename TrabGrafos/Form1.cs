@@ -95,27 +95,29 @@ namespace TrabGrafos
         List<int> valueCoord = new List<int>();
         int id;
 
-        private void fCoord_KeyDown(object sender, KeyEventArgs e)
-        {
-            id = listNodes.Count - 1;
-            //MessageBox.Show(Convert.ToString(id));
-            if (e.KeyCode == Keys.Return || e.KeyCode == Keys.Enter)
-            {
-                ++id;
-                string[] sCoord = fCoord.Text.Split(',');
-                valueCoord.Add(Int32.Parse(sCoord[0]));
-                valueCoord.Add(Int32.Parse(sCoord[1]));
-                listNodes.Add(new Node(id, valueCoord[0], valueCoord[1], Color.Black, g));
-                listNodes[listNodes.Count - 1].DrawNode();
-                listNodes[id].Connect(listNodes[listNodes.Count - 1]);
-                fCoord.Clear();
-                valueCoord.Clear();
-            }
-        }
-
         private void Form1_Resize(object sender, EventArgs e)
         {
-            g = graphPanel.CreateGraphics();
+            g = graphPanel.CreateGraphics();  //tamanho alterado da tela altera tamanho do graphics
+        }
+
+        private void graphPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            id = listNodes.Count - 1;
+
+            if (e.Clicks >= 2)
+            {
+                listNodes.Add(new Node(id, e.X, e.Y, Color.Black, g));
+                valueCoord.Add(e.X);
+                valueCoord.Add(e.Y);
+                listNodes[listNodes.Count - 1].DrawNode();
+                listNodes[id].Connect(listNodes[listNodes.Count - 1]);
+            }
+            else
+            {
+                //connect nodos
+            }
+            
+            //MessageBox.Show(string.Format("{0},{1}", e.X + 32, e.Y + 32));
         }
     }
 }
