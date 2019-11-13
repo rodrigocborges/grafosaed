@@ -66,7 +66,6 @@ namespace TrabGrafos
             foreach (Node n in listNodes)
                 n.DrawNode(); //desenha todos os nodos presentes na lista
 
-        
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,15 +97,23 @@ namespace TrabGrafos
         }
      
         List<int> valueCoord = new List<int>();
+        int id;
+
         private void fCoord_KeyDown(object sender, KeyEventArgs e)
         {
+            id = listNodes.Count-1;
+            //MessageBox.Show(Convert.ToString(id));
             if (e.KeyCode == Keys.Return || e.KeyCode == Keys.Enter)
             {
+                ++id;
                 string[] sCoord = fCoord.Text.Split(',');
                 valueCoord.Add(Int32.Parse(sCoord[0]));
                 valueCoord.Add(Int32.Parse(sCoord[1]));
-                listNodes.Add(new Node(5, valueCoord[0], valueCoord[1], Color.Black, g));
+                listNodes.Add(new Node(id, valueCoord[0], valueCoord[1], Color.Black, g));
                 listNodes[listNodes.Count - 1].DrawNode();
+                fCoord.Clear();
+                valueCoord.Clear();
+                //++id;
 
             }
         }
