@@ -17,6 +17,13 @@ namespace TrabGrafos
         public int y;
         public List<Node> parent;
         public Color color;
+        public struct NodeEdge
+        {
+            public Node a;
+            public Node b;
+            public int weight;
+        }
+        public NodeEdge nodeEdge;
 
         private Graphics g;
         private int size = 32;
@@ -45,11 +52,18 @@ namespace TrabGrafos
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
         } //distância entre 2 pontos
 
-        public void Connect(Node n)
+        public void Connect(Node n, int weight)
         {
             this.parent.Add(n); //adiciona conexão na lista de conexões
+            this.nodeEdge.a = this;
+            this.nodeEdge.b = n;
+            this.nodeEdge.weight = weight;
             Pen pen = new Pen(Color.Black);
-            g.DrawLine(pen, x + (size/2), y + (size/2), n.x + (size/2), n.y + (size/2));
+            pen.Width = 2;
+            Point a = new Point(x + (size / 2), y + (size / 2));
+            Point b = new Point(n.x + (size / 2), n.y + (size / 2));
+            g.DrawLine(pen, a, b);
+            g.DrawString(weight.ToString(), new Font("Arial", 10), new SolidBrush(Color.Black), (a.X + b.X) / 2, (a.Y + b.Y) / 2);
         }
     }
 }

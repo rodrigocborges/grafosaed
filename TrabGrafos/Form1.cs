@@ -22,13 +22,6 @@ namespace TrabGrafos
             g = graphPanel.CreateGraphics();
         }
 
-        private void DrawLine(int x1, int y1, int x2, int y2)
-        {
-            Pen pen = new Pen(Color.Black);
-            g.DrawLine(pen, x1, y1, x2, y2);
-            pen.Dispose();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -39,12 +32,17 @@ namespace TrabGrafos
 
         private void graphPanel_Paint(object sender, PaintEventArgs e)
         {
+            for(int i = 0; i < 5; i++)
+            {
+                listNodes.Add(new Node(i, (i+10) * 32, (i + 1)*32, Helpers.RandomColor(), g));
+            }
+
             for (int i = 0; i < listNodes.Count; i++)
             {
                 if (i < listNodes.Count - 1)
-                    listNodes[i].Connect(listNodes[i + 1]);
+                    listNodes[i].Connect(listNodes[i + 1], 10);
                 else
-                    listNodes[i].Connect(listNodes[i]);
+                    listNodes[i].Connect(listNodes[i], 10);
             } //conecta automaticamente os nodos
 
             foreach (Node n in listNodes)
@@ -106,11 +104,10 @@ namespace TrabGrafos
 
             if (e.Clicks >= 2)
             {
-                listNodes.Add(new Node(id, e.X, e.Y, Color.Black, g));
+                listNodes.Add(new Node(id, e.X, e.Y, Helpers.RandomColor(), g));
                 valueCoord.Add(e.X);
                 valueCoord.Add(e.Y);
                 listNodes[listNodes.Count - 1].DrawNode();
-                listNodes[id].Connect(listNodes[listNodes.Count - 1]);
             }
             else
             {
