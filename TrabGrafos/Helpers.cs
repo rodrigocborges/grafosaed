@@ -17,6 +17,16 @@ namespace TrabGrafos
             int blue = r.Next(255);
             return Color.FromArgb(red, green, blue);
         } 
+
+        public static void LA(List<Node> list)
+        {
+
+        }
+
+        public static void MA(List<Node> list)
+        {
+
+        }
         
 
     }
